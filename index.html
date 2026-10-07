@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100f19" />
+    <meta name="description" content="A hand-picked-feeling arcade with hundreds of games, ready to play in your browser." />
+    <title>GeekGenius</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="config/main.css" />
+    <script src="config/arcade.js" type="module"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="GeekGenius home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>Geek<span class="brand-accent">Genius</span></span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-link is-active" type="button" data-view="all" aria-current="page">Discover</button>
+          <button class="nav-link favorites-nav" type="button" data-view="favorites">
+            My favorites <span class="favorite-count" id="favoriteCount">0</span>
+          </button>
+        </nav>
+
+        <a class="header-cta" href="#games"><span aria-hidden="true">✦</span> Find a game</a>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span>Your next play break starts here</p>
+            <h1 id="hero-title">Good games.<br /><span>Zero guesswork.</span></h1>
+            <p class="hero-description">Pick a game and play it right here. Your game list lives in a simple JSON file, and games open in the GeekGenius player.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#games">Explore the library <span aria-hidden="true">↘</span></a>
+              <button class="button button-secondary" id="surpriseButton" type="button"><span aria-hidden="true">⤨</span> Surprise me</button>
+            </div>
+            <div class="hero-stats" aria-live="polite">
+              <span class="mini-game-icons" aria-hidden="true"><i>♟</i><i>✣</i><i>◈</i></span>
+              <span><strong id="gameCount">Loading games…</strong> games to explore</span>
+              <span class="stats-divider" aria-hidden="true"></span>
+              <span class="muted-stat">Play right here</span>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <svg class="console-art" viewBox="0 0 560 430" role="img">
+              <defs>
+                <linearGradient id="screenSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#8653e9" />
+                  <stop offset=".55" stop-color="#da67c8" />
+                  <stop offset="1" stop-color="#ffb77d" />
+                </linearGradient>
+                <linearGradient id="screenShade" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#b774f6" />
+                  <stop offset="1" stop-color="#4540a3" />
+                </linearGradient>
+                <clipPath id="screenClip"><rect x="143" y="105" width="275" height="185" rx="8" /></clipPath>
+                <pattern id="screenLines" width="4" height="4" patternUnits="userSpaceOnUse">
+                  <path d="M0 0h4" stroke="#fff" stroke-opacity=".1" />
+                </pattern>
+              </defs>
+              <circle cx="285" cy="218" r="193" fill="none" stroke="#29243a" />
+              <circle cx="285" cy="218" r="153" fill="none" stroke="#1d2b25" />
+              <path d="M82 112l8 8m0-8-8 8m4-13v18m-9-9h18" stroke="#8af67a" stroke-width="1.6" />
+              <path d="M504 174l4 4m0-4-4 4" stroke="#f276be" stroke-width="1.5" />
+              <path d="M492 323l5 9 9 5-9 5-5 9-5-9-9-5 9-5z" fill="#a16aff" />
+              <g transform="rotate(-7 282 216)">
+                <rect x="109" y="81" width="360" height="274" rx="35" fill="#0a0a12" opacity=".56" transform="translate(13 14)" />
+                <rect x="105" y="74" width="360" height="274" rx="34" fill="#1d1c2b" stroke="#48465d" stroke-width="2" />
+                <rect x="126" y="92" width="309" height="211" rx="13" fill="#090912" />
+                <g clip-path="url(#screenClip)">
+                  <rect x="143" y="105" width="275" height="185" fill="url(#screenSky)" />
+                  <circle cx="349" cy="145" r="25" fill="#ffe379" />
+                  <path d="M128 286l100-95 48 42 54-28 106 81z" fill="url(#screenShade)" />
+                  <path d="M216 297l91-75 124 68v32H216z" fill="#302c70" />
+                  <rect x="143" y="105" width="275" height="185" fill="url(#screenLines)" />
+                  <g transform="translate(242 220) rotate(-7)">
+                    <path d="M0 0h21v34H0z" fill="#11111c" />
+                    <path d="M3 3h15v24H3z" fill="#8af67a" />
+                    <path d="M5 31h12" stroke="#11111c" stroke-width="4" />
+                  </g>
+                </g>
+                <path d="M151 329h35v12h-35zM162.5 317.5v35" stroke="#090912" stroke-width="10" stroke-linecap="round" />
+                <circle cx="385" cy="321" r="8" fill="#c86cf1" />
+                <circle cx="363" cy="338" r="8" fill="#f45cae" />
+                <g fill="#73718a">
+                  <circle cx="270" cy="330" r="2" /><circle cx="279" cy="327" r="2" /><circle cx="288" cy="324" r="2" /><circle cx="297" cy="321" r="2" />
+                  <circle cx="273" cy="339" r="2" /><circle cx="282" cy="336" r="2" /><circle cx="291" cy="333" r="2" /><circle cx="300" cy="330" r="2" />
+                </g>
+              </g>
+              <g transform="rotate(5 422 91)">
+                <rect x="355" y="76" width="133" height="37" rx="10" fill="#201f2f" stroke="#403d55" />
+                <text x="369" y="99" fill="#a0f68d" font-size="10" font-weight="700">✦</text>
+                <text x="385" y="99" fill="#e5e3ec" font-size="9" font-weight="700" letter-spacing="1.2">PLAY YOUR WAY</text>
+              </g>
+              <g transform="rotate(-6 105 345)">
+                <rect x="22" y="327" width="160" height="37" rx="9" fill="#201f2f" stroke="#403d55" />
+                <text x="39" y="350" fill="#a39fb5" font-size="10">✦</text>
+                <text x="54" y="350" fill="#ec83bd" font-size="11" font-weight="700">GOOD VIBES ONLY</text>
+              </g>
+            </svg>
+          </div>
+          <div class="hero-caption"><span></span><p>Your browser is the console</p><span></span></div>
+        </section>
+
+        <section class="library" id="games" aria-labelledby="library-title">
+          <div class="library-heading">
+            <div>
+              <p class="eyebrow library-eyebrow">The GeekGenius arcade</p>
+              <h2 id="library-title">Pick your next <span>favorite.</span></h2>
+            </div>
+            <label class="search-box" for="searchInput">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8"></circle><path d="m13 13 4 4"></path></svg>
+              <input type="search" id="searchInput" placeholder="Search games…" autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </label>
+          </div>
+          <div class="library-toolbar">
+            <p id="resultsCount" aria-live="polite">Loading your games…</p>
+            <span class="library-hint">Choose a game to play</span>
+          </div>
+          <div id="gamesContainer" class="games-grid" aria-busy="true">
+            <div class="loading-card"><span class="loading-art"></span><span class="loading-line"></span></div>
+            <div class="loading-card"><span class="loading-art"></span><span class="loading-line"></span></div>
+            <div class="loading-card"><span class="loading-art"></span><span class="loading-line"></span></div>
+            <div class="loading-card"><span class="loading-art"></span><span class="loading-line"></span></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Geek<span class="brand-accent">Genius</span></span></a>
+        <p>Good games, ready when you are.</p>
+        <a class="back-to-top" href="#top">Back to top ↑</a>
+      </footer>
+    </div>
+  </body>
+</html>
